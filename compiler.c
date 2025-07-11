@@ -85,8 +85,9 @@ int main(int argc, char *argv[]) {
         printf("Usage: %s <input-file>\n", argv[0]);
         return 1;
     }
-    if(get_filename(argv[1]) != "sn") {
+    if(strcmp(get_filename(argv[1]), "sn") != 0) {
       printf("File is not a .sn file. \n");
+      return 1;
     }
 
     source = fopen(argv[1], "r");
