@@ -68,10 +68,25 @@ void program(FILE *out) {
     }
 }
 
+const char* get_filename(const char *filename) {
+  if(!filename) return NULL;
+  int len = strlen(filename);
+  if(len == 0) return "";
+  for (int i = len - 1;i >= 0; i--){
+    if(filename[i] == '.'){
+      return &filename[i + 1];
+    }
+  }
+  return "";
+}
+
 int main(int argc, char *argv[]) {
     if (argc != 2) {
         printf("Usage: %s <input-file>\n", argv[0]);
         return 1;
+    }
+    if(get_filename(argv[1]) != "sn") {
+      printf("File is not a .sn file. \n");
     }
 
     source = fopen(argv[1], "r");
