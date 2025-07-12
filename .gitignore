@@ -53,3 +53,6 @@ dkms.conf
 
 # debug information files
 *.dwo
+output.c
+compiled
+test.py
